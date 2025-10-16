@@ -2,33 +2,34 @@ import java.util.Scanner;
 public class CaseMethod_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double uts=0.3, uas=0.4, tugas=0.3;
-        String nilaiHuruf_1, nilaiHuruf_2, status_1, status_2, statusAkhir;
+        int nilaiUTS_1, nilaiUAS_1, nilaiTugas_1, nilaiUTS_2, nilaiUAS_2, nilaiTugas_2;
+        double uts=0.3, uas=0.4, tugas=0.3, nilaiAkhir_1, nilaiAkhir_2, avg_nilai_akhir;
+        String namaMhs, nim, nilaiHuruf_1, nilaiHuruf_2, status_1, status_2, statusAkhir;
 
         System.out.println("<<<<<INPUT DATA MAHASISWA>>>>");
         System.out.print("Nama Mahasiswa: >");
-        String namaMhs = sc.nextLine();
+        namaMhs = sc.nextLine();
         System.out.print("Masukkan NIM  : >");
-        String nim = sc.nextLine();
+        nim = sc.nextLine();
 
         System.out.println("<<Algoritma dan Pemrograman>>");
         System.out.print("Input nilai UTS: >");
-        int nilaiUTS_1= sc.nextInt();
+        nilaiUTS_1= sc.nextInt();
         System.out.print("Input nilai UAS: >");
-        int nilaiUAS_1 = sc.nextInt();
+        nilaiUAS_1 = sc.nextInt();
         System.out.print("Input nilai Tugas: >");
-        int nilaiTugas_1 = sc.nextInt();
-        double nilaiAkhir_1 = (nilaiUTS_1 * uts) + (nilaiUAS_1 * uas) + (nilaiTugas_1 * tugas);
+        nilaiTugas_1 = sc.nextInt();
+        nilaiAkhir_1 = (nilaiUTS_1 * uts) + (nilaiUAS_1 * uas) + (nilaiTugas_1 * tugas);
 
         System.out.println("<<<<<<<<Struktur Data>>>>>>>");
         System.out.print("Input nilai UTS: >");
-        int nilaiUTS_2 = sc.nextInt();
+        nilaiUTS_2 = sc.nextInt();
         System.out.print("Input nilai UAS: >");
-        int nilaiUAS_2 = sc.nextInt();
+        nilaiUAS_2 = sc.nextInt();
         System.out.print("Input nilai Tugas: >");
-        int nilaiTugas_2 = sc.nextInt();
-        double nilaiAkhir_2 = (nilaiUTS_2 * uts) + (nilaiUAS_2 * uas) + (nilaiTugas_2 * tugas);
-        double avg_nilai_akhir= (nilaiAkhir_1 + nilaiAkhir_2) / 2 ;
+        nilaiTugas_2 = sc.nextInt();
+        nilaiAkhir_2 = (nilaiUTS_2 * uts) + (nilaiUAS_2 * uas) + (nilaiTugas_2 * tugas);
+        avg_nilai_akhir= (nilaiAkhir_1 + nilaiAkhir_2) / 2 ;
 
         if (nilaiAkhir_1 > 80 && nilaiAkhir_1 <=100) {
             nilaiHuruf_1 = "A";
@@ -94,16 +95,14 @@ public class CaseMethod_1 {
         System.out.println("Nama Mahasiswa : " + namaMhs);
         System.out.println("NIM            : " + nim);
         System.out.println("========================================================================");
-        System.out.println("| No | Mata Kuliah        | UTS | UAS | Tugas | Akhir | Huruf | Status|");
-        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("| No | Mata Kuliah          | UTS | UAS | Tugas | Akhir | Huruf | Status|");
+        System.out.println("------------------------------------------------------------------------");
         System.out.println("| 1  | Algoritma Pemrograman| " + nilaiUTS_1 + "  | " + nilaiUAS_1 + "  | " + nilaiTugas_1 + "   | " + nilaiAkhir_1 + "  | " + nilaiHuruf_1 + "   | " + status_1 + " |");
         System.out.println("| 2  | Struktur Data        | " + nilaiUTS_2 + "  | " + nilaiUAS_2 + "  | " + nilaiTugas_2 + "   | " + nilaiAkhir_2 + "  | " + nilaiHuruf_2 + "   | " + status_2 + " |");
-        System.out.println("-------------------------------------------------------------------------");
-        System.out.println("Rata-rata Nilai Akhir : " + avg_nilai_akhir);
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println(String.format("Rata-rata Nilai Akhir : %.2f", avg_nilai_akhir));
         System.out.println("Status Semester       : " + statusAkhir);
         System.out.println("=========================================================================");
-
-
         sc.close();
     }
 }
