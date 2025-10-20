@@ -2,9 +2,15 @@ import java.util.Scanner;
 public class CaseMethod_1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int nilaiUTS_1, nilaiUAS_1, nilaiTugas_1, nilaiUTS_2, nilaiUAS_2, nilaiTugas_2, nilaiUTS_3, nilaiUAS_3, nilaiTugas_3, kuis1_1, kuis1_2, kuis2_1, kuis2_2, kuis3_1, kuis3_2, totalKuis_1, totalKuis_2, totalKuis_3;
-        double uts=0.2, uas=0.2, tugas=0.3, kuis= 0.3, nilaiAkhir_1, nilaiAkhir_2, nilaiAkhir_3, avg_nilai_akhir;
-        String namaMhs, nim, nilaiHuruf_1, nilaiHuruf_2, nilaiHuruf_3, status_1, status_2, status_3, statusAkhir;
+        int nilaiUTS_1, nilaiUAS_1, nilaiTugas_1,
+            nilaiUTS_2, nilaiUAS_2, nilaiTugas_2,
+            nilaiUTS_3, nilaiUAS_3, nilaiTugas_3,
+            kuis1_1, kuis1_2, kuis2_1, kuis2_2, kuis3_1, kuis3_2,
+            totalKuis_1, totalKuis_2, totalKuis_3;
+        double uts=0.2, uas=0.2, tugas=0.3, kuis= 0.3,
+               nilaiAkhir_1, nilaiAkhir_2, nilaiAkhir_3, avg_nilai_akhir;
+        String namaMhs, nim, nilaiHuruf_1, nilaiHuruf_2, nilaiHuruf_3,
+               status_1, status_2, status_3, statusAkhir;
 
         System.out.println("<<<<<INPUT DATA MAHASISWA>>>>");
         System.out.print("Nama Mahasiswa: >");
@@ -73,12 +79,10 @@ public class CaseMethod_1 {
             nilaiHuruf_1 = "-";
         }
 
-        if (kuis1_1 == 0 || kuis1_2 == 0) {
-        status_1 = "TIDAK LULUS (nilai kuis 0)";
-        } else if (nilaiAkhir_1 >= 60) {
-        status_1 = "LULUS";
-        } else {
-        status_1 = "TIDAK LULUS";
+        if (nilaiAkhir_1 >=60) {
+            status_1 = "LULUS";
+        }else{
+            status_1 = "TIDAK LULUS";
         }
 
         if (nilaiAkhir_2 > 80 && nilaiAkhir_2 <=100) {
@@ -99,13 +103,12 @@ public class CaseMethod_1 {
             nilaiHuruf_2 = "-";
         }
 
-        if (kuis2_1 == 0 || kuis2_2 == 0) {
-        status_2 = "TIDAK LULUS (nilai kuis 0)";
-        } else if (nilaiAkhir_2 >= 60) {
-        status_2 = "LULUS";
-        } else {
-        status_2 = "TIDAK LULUS";
+        if (nilaiAkhir_2 >=60) {
+            status_2 = "LULUS";
+        }else{
+            status_2 = "TIDAK LULUS";
         }
+
 
         if (nilaiAkhir_3 > 80 && nilaiAkhir_3 <=100) {
             nilaiHuruf_3 = "A";
@@ -125,17 +128,17 @@ public class CaseMethod_1 {
             nilaiHuruf_3 = "-";
         }
 
-        if (kuis3_1 == 0 || kuis3_2 == 0) {
-        status_3 = "TIDAK LULUS (nilai kuis 0)";
-        } else if (nilaiAkhir_3 >= 60) {
-        status_3 = "LULUS";
-        } else {
-        status_3 = "TIDAK LULUS";
+        if (nilaiAkhir_3 >=60) {
+            status_3 = "LULUS";
+        }else{
+            status_3 = "TIDAK LULUS";
         }
 
 
         if (status_1.equals("LULUS") && status_2.equals("LULUS") && status_3.equals("LULUS")) {
-            if (avg_nilai_akhir >= 70) {
+            if (kuis1_1 == 0 || kuis1_2 == 0 || kuis2_1 == 0 || kuis2_2 ==0 || kuis3_1 == 0 || kuis3_2 == 0) {
+                statusAkhir = "TIDAK LULUS (ada nilai kuis 0)";
+            }else if (avg_nilai_akhir >= 70) {
                 statusAkhir = "LULUS";
             } else {
                 statusAkhir = "TIDAK LULUS (rata-rata < 70)";
@@ -152,9 +155,9 @@ public class CaseMethod_1 {
         System.out.println("========================================================================");
         System.out.println("| No | Mata Kuliah          | UTS | UAS | Tugas | Kuis 1| Kuis 2| Akhir | Huruf | Status|");
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("| 1  | Algoritma Pemrograman| " + nilaiUTS_1 + " | " + nilaiUAS_1 + " | " + nilaiTugas_1 + " | " +kuis1_1  + "  | " +  kuis1_2  +" | " + nilaiAkhir_1 + " | " + nilaiHuruf_1 + " | " + status_1 + " |");
-        System.out.println("| 2  | Struktur Data        | " + nilaiUTS_2 + " | " + nilaiUAS_2 + " | " + nilaiTugas_2 + " | " +kuis2_1  + "  | " +  kuis2_2  +" | " + nilaiAkhir_2 + " | " + nilaiHuruf_2 + " | " + status_2 + " |");
-        System.out.println("| 3  | Java                 | " + nilaiUTS_3 + " | " + nilaiUAS_3 + " | " + nilaiTugas_3 + " | " +kuis3_1  + "  | " +  kuis3_2  +" | " + nilaiAkhir_3 + " | " + nilaiHuruf_3 + " | " + status_3 + " |");
+        System.out.println("| 1  | Algoritma Pemrograman| " + nilaiUTS_1 + " | " + nilaiUAS_1 + " | " + nilaiTugas_1 + " | " +kuis1_1  + "  | " +  kuis1_2  +" | " + String.format("%.2f", nilaiAkhir_1) + " | " + nilaiHuruf_1 + " | " + status_1 + " |");
+        System.out.println("| 2  | Struktur Data        | " + nilaiUTS_2 + " | " + nilaiUAS_2 + " | " + nilaiTugas_2 + " | " +kuis2_1  + "  | " +  kuis2_2  +" | " + String.format("%.2f", nilaiAkhir_2) + " | " + nilaiHuruf_2 + " | " + status_2 + " |");
+        System.out.println("| 3  | Java                 | " + nilaiUTS_3 + " | " + nilaiUAS_3 + " | " + nilaiTugas_3 + " | " +kuis3_1  + "  | " +  kuis3_2  +" | " + String.format("%.2f", nilaiAkhir_3) + " | " + nilaiHuruf_3 + " | " + status_3 + " |");
         System.out.println("------------------------------------------------------------------------"); 
         System.out.println(String.format("Rata-rata Nilai Akhir : %.2f", avg_nilai_akhir));
         System.out.println("Status Semester       : " + statusAkhir);
